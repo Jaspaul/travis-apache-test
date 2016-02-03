@@ -10,7 +10,8 @@ before_install:
   ##############################################################################
   # Setup apache2
   ##############################################################################
-  - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-mysql php5-sqlite > /dev/null
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq -y --force-yes apache2 libapache2-mod-php5 php5-mysql php5-sqlite
 
   # Replace basedir in virtual host config
   - sed 's?%basedir%?'`pwd`'?' .travis/virtual.host > .travis/vhost
