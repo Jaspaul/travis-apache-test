@@ -25,7 +25,7 @@ before_install:
 
   # Enable mod rewrite
   - sudo a2enmod rewrite
-s
+
   # Enable our vhost
   - sudo a2ensite vhost
 
