@@ -1,0 +1,33 @@
+language: php
+
+php:
+  - 5.4
+
+before_install:
+  ##############################################################################
+  # Setup apache2
+  ##############################################################################
+  - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-mysql php5-sqlite > /dev/null
+
+  # Replace basedir in virtual host config
+  - sed 's?%basedir%?'`pwd`'?' .travis/virtual.host > .travis/vhost
+
+  # Define virtual host
+  - sudo mv .travis/vhost /etc/apache2/sites-available/vhost
+
+  # Update our hosts
+  - echo "127.0.0.1    one.test.app" | sudo tee -a /etc/hosts
+  - echo "127.0.0.1    two.test.app" | sudo tee -a /etc/hosts
+
+  # Enable mod rewrite
+  - sudo a2enmod rewrite
+
+  # Enable our vhost
+  - sudo a2ensite vhost
+
+  # Restart apache
+  - sudo /etc/init.d/apache2 restart
+
+before_script:
+  - curl http://one.test.app
+  - curl http://two.test.app
