@@ -18,6 +18,7 @@ before_install:
 
   # Define virtual host
   - sudo mv .travis/vhost /etc/apache2/sites-available/vhost
+  - sudo ln -s /etc/apache2/sites-available/vhost /etc/apache2/sites-enabled/vhost
 
   # Update our hosts
   - echo "127.0.0.1    one.test.app" | sudo tee -a /etc/hosts
@@ -25,9 +26,6 @@ before_install:
 
   # Enable mod rewrite
   - sudo a2enmod rewrite
-
-  # Enable our vhost
-  - sudo a2ensite vhost
 
   # Restart apache
   - sudo /etc/init.d/apache2 restart
