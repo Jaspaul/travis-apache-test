@@ -1,17 +1,17 @@
 NameVirtualHost 127.0.0.1:80
 
-<Directory "%basedir%/public">
+<Directory "%basedir%">
     AllowOverride All
 </Directory>
 
 <VirtualHost 127.0.0.1:80>
     ServerName   "one.test.app"
     ServerAlias  "one.test.app"
-    DocumentRoot "%basedir%/public"
+    DocumentRoot "%basedir%/one"
 </VirtualHost>
 
 <VirtualHost 127.0.0.1:80>
     ServerName   "two.test.app"
     ServerAlias  "two.test.app"
-    DocumentRoot "%basedir%/public"
+    DocumentRoot "%basedir%/two"
 </VirtualHost>
