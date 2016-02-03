@@ -1,2 +1,2 @@
 # travis-apache-test
-Travis-Apache-Test
+[![Build Status](https://travis-ci.org/Jaspaul/travis-apache-test.svg?branch=master)](https://travis-ci.org/Jaspaul/travis-apache-test)
