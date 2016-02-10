@@ -22,7 +22,7 @@ before_install:
   - sed 's?%basedir%?'`pwd`'?' .travis/two.test.app.conf > .travis/two.test.app.conf
 
   - pwd
-  - cat ./travis/one.test.app.conf
+  - cat .travis/one.test.app.conf
 
   # Define virtual host
   - sudo cp .travis/one.test.app.conf /etc/apache2/sites-available/one.test.app.conf
