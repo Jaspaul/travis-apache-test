@@ -18,12 +18,15 @@ before_install:
   - sudo apt-get install -qq -y --force-yes apache2 libapache2-mod-php5 php5-mysql php5-sqlite
 
   # Replace basedir in virtual host config
-  - sed 's?%basedir%?'`pwd`'?' .travis/one.text.app.conf > .travis/one.text.app.conf
-  - sed 's?%basedir%?'`pwd`'?' .travis/two.text.app.conf > .travis/two.text.app.conf
+  - sed 's?%basedir%?'`pwd`'?' .travis/one.test.app.conf > .travis/one.test.app.conf
+  - sed 's?%basedir%?'`pwd`'?' .travis/two.test.app.conf > .travis/two.test.app.conf
 
   # Define virtual host
-  - sudo mv .travis/one.text.app.conf /etc/apache2/sites-available/one.text.app.conf
-  - sudo mv .travis/two.text.app.conf /etc/apache2/sites-available/two.text.app.conf
+  - sudo cp .travis/one.test.app.conf /etc/apache2/sites-available/one.test.app.conf
+  - sudo cp .travis/two.test.app.conf /etc/apache2/sites-available/two.test.app.conf
+
+  - ls /etc/apache2/sites-available
+  - ls /etc/apache2/sites-enabled
 
   # Update our hosts
   - echo "127.0.0.1    one.test.app" | sudo tee -a /etc/hosts
