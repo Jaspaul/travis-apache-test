@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view("$_SERVER welcome");
+    return view('welcome');
 });
 
 /*
