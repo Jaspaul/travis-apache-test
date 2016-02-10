@@ -3,4 +3,11 @@
     ServerAlias  "two.test.app"
     DocumentRoot "%basedir%/website/public"
     DirectoryIndex index.php index.html index.html.var
+
+    <Directory %basedir%/website/public>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride None
+        Order allow,deny
+        allow from all
+    </Directory>
 </VirtualHost>

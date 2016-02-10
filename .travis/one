@@ -1,0 +1,13 @@
+<VirtualHost 127.0.0.1:80>
+    ServerName   "one.test.app"
+    ServerAlias  "one.test.app"
+    DocumentRoot "%basedir%/website/public"
+    DirectoryIndex index.php index.html index.html.var
+
+    <Directory %basedir%/website/public>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride None
+        Order allow,deny
+        allow from all
+    </Directory>
+</VirtualHost>
