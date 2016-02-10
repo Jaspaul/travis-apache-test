@@ -18,15 +18,10 @@ before_install:
   - sudo apt-get install -qq -y --force-yes apache2 libapache2-mod-php5 php5-mysql php5-sqlite
 
   # Replace basedir in virtual host config
-  - sed 's?%basedir%?'`pwd`'?' .travis/one > .travis/one.test.app.conf
-  - sed 's?%basedir%?'`pwd`'?' .travis/two > .travis/two.test.app.conf
+  - sed 's?%basedir%?'`pwd`'?' .travis/star > .travis/star.test.app.conf
 
   # Define virtual host
-  - sudo cp .travis/one.test.app.conf /etc/apache2/sites-available/one.test.app.conf
-  - sudo cp .travis/two.test.app.conf /etc/apache2/sites-available/two.test.app.conf
-
-  - ls /etc/apache2/sites-available
-  - ls /etc/apache2/sites-enabled
+  - sudo cp .travis/star.test.app.conf /etc/apache2/sites-available/star.test.app.conf
 
   # Update our hosts
   - echo "127.0.0.1    one.test.app" | sudo tee -a /etc/hosts
@@ -37,8 +32,7 @@ before_install:
 
   # Enable the sites
   - sudo a2dissite 000-default.conf
-  - sudo a2ensite one.test.app.conf
-  - sudo a2ensite two.test.app.conf
+  - sudo a2ensite star.test.app.conf
 
   # Fix permissions (Let's throw www-data into our travis group)
   - sudo usermod -a -G travis www-data
