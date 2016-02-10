@@ -17,6 +17,8 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq -y --force-yes apache2 libapache2-mod-php5 php5-mysql php5-sqlite
 
+  - cat .travis/one.test.app.conf
+
   # Replace basedir in virtual host config
   - sed 's?%basedir%?'`pwd`'?' .travis/one.test.app.conf > .travis/one.test.app.conf
   - sed 's?%basedir%?'`pwd`'?' .travis/two.test.app.conf > .travis/two.test.app.conf
