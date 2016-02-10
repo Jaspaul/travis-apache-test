@@ -46,6 +46,9 @@ before_install:
   # Restart apache
   - sudo /etc/init.d/apache2 restart
 
+  - ls -la
+  - ps aux | egrep '(apache|httpd)'
+
 before_script:
   - cd website && composer self-update && composer install -n --prefer-source
   - curl http://one.test.app
