@@ -36,6 +36,7 @@ before_install:
   - sudo a2enmod rewrite
 
   # Enable the sites
+  - sudo a2dissite 000-default.conf
   - sudo a2ensite one.test.app.conf
   - sudo a2ensite two.test.app.conf
 
