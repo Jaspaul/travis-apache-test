@@ -41,7 +41,7 @@ before_install:
   - sudo a2ensite two.test.app.conf
 
   # Fix permissions (Let's throw www-data into our travis group)
-  - sudo useradd -G travis www-data
+  - sudo usermod -a -G travis www-data
 
   # Restart apache
   - sudo /etc/init.d/apache2 restart
