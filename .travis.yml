@@ -6,6 +6,10 @@ dist: trusty
 php:
   - 5.4
 
+cache:
+ directories:
+  - $HOME/.composer/cache
+
 before_install:
   ##############################################################################
   # Setup apache2
@@ -36,5 +40,6 @@ before_install:
   - sudo /etc/init.d/apache2 restart
 
 before_script:
+  - cd website && composer self-update && composer install -n --prefer-source
   - curl http://one.test.app
   - curl http://two.test.app
