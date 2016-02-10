@@ -40,6 +40,9 @@ before_install:
   - sudo a2ensite one.test.app.conf
   - sudo a2ensite two.test.app.conf
 
+  # Fix permissions
+  - sudo chmod o+x webiste
+
   # Restart apache
   - sudo /etc/init.d/apache2 restart
 
